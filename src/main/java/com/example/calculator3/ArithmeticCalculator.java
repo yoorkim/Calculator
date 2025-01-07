@@ -3,29 +3,32 @@ package com.example.calculator3;
 import java.util.LinkedList;
 
 public class ArithmeticCalculator {
-    private LinkedList<Integer> result = new LinkedList<>();
+    private LinkedList<Number> result = new LinkedList<>();
 
-    public LinkedList<Integer> calculate (char operator, int num1, int num2) {
+    public <T extends Number> LinkedList<Number> calculate (char operator, T num1, T num2) {
         try {
+            double n1 = num1.doubleValue(), n2 = num2.doubleValue();  // Number -> double 타입 변환
+            double resultValue = 0;
             OperatorType operatorType = OperatorType.compare(operator);
             switch (operatorType) {
                 case ADD:
-                    result.add(num1 + num2);
+                    resultValue = n1 + n2;
                     break;
                 case SUBTRACT:
-                    result.add(num1 - num2);
+                    resultValue = n1 - n2;
                     break;
                 case MULTIPLY:
-                    result.add(num1 * num2);
+                    resultValue = n1 * n2;
                     break;
                 case DIVIDE:
-                    if (num2 == 0) {
-                        App.pass = false; // 예외 발생한 경우 pass를 false로 변경
-                        throw new ArithmeticException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                    if (n2 == 0) {
+                        throw new ArithmeticException("나눗셈 연산에서 분모(두번째 숫자)에 0이 입력될 수 없습니다.");
                     }
-                    result.add(num1 / num2);
+                    resultValue = n1 / n2;
                     break;
             }
+            double roundedResult = Math.round(resultValue * 100.0) / 100.0;  // 반올림하여 소수점 둘째 자리까지 저장
+            result.add(roundedResult);
         } catch (ArithmeticException | IllegalArgumentException e) {
             App.pass = false;  // 예외 발생한 경우 pass를 false로 변경
             System.out.println(e.getMessage());
@@ -38,12 +41,12 @@ public class ArithmeticCalculator {
     }
 
     // Getter 메서드
-    public LinkedList<Integer> getResult() {
+    public LinkedList<Number> getResult() {
         return result;
     }
 
     // Setter 메서드
-    public void setResult(LinkedList<Integer> result) {
+    public void setResult(LinkedList<Number> result) {
         this.result = result;
     }
 }
