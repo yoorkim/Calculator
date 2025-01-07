@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Calculator {
     private LinkedList<Integer> result = new LinkedList<>();
 
-    public LinkedList<Integer> calculate (Character operator, int num1, int num2) {
+    public LinkedList<Integer> calculate (char operator, int num1, int num2) {
         switch(operator) {
             case('+'):
                 result.add(num1 + num2);
@@ -17,7 +17,7 @@ public class Calculator {
                 result.add(num1 * num2);
                 break;
             case('/'):
-                if(num2 == 0) {
+                if (num2 == 0) {
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                     App.pass = false;  // 분모가 0인 경우 result 값 계산 생략
                 } else {
