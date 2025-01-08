@@ -44,6 +44,8 @@ public class App {
                 }
                 // maxResult() 호출하여 필터링된 리스트 받아옴
                 System.out.println("\t- 입력받은 값보다 큰 결과값 리스트: " + calculator.maxResult(input));
+                // minResult() 호출하여 필터링된 리스트 받아옴
+                System.out.println("\t- 입력받은 값보다 작은 결과값 리스트: " + calculator.minResult(input));
                 calculator.removeResult();  // 맨 앞의 데이터 삭제
                 System.out.println("\t- 가장 먼저 저장된 값 삭제 결과: " + calculator.getResult() + "\n");
             }

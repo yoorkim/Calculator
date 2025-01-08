@@ -44,6 +44,13 @@ public class ArithmeticCalculator {
                 .toList();
     }
 
+    // 연산 결과 리스트에서 input 값보다 작은 결과값들만 반환하는 메서드
+    public List<Number> minResult(Number input) {
+        return result.stream()
+                .filter((Number n) -> input.doubleValue() > n.doubleValue())
+                .toList();
+    }
+
     public void removeResult() {
         result.remove(0);  // 가장 먼저 저장된 데이터가 있는 첫 번째 인덱스 삭제
     }
