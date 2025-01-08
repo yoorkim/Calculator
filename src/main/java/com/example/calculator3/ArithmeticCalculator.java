@@ -1,6 +1,7 @@
 package com.example.calculator3;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class ArithmeticCalculator {
     private LinkedList<Number> result = new LinkedList<>();
@@ -27,13 +28,20 @@ public class ArithmeticCalculator {
                     resultValue = n1 / n2;
                     break;
             }
-            double roundedResult = Math.round(resultValue * 100.0) / 100.0;  // 반올림하여 소수점 둘째 자리까지 저장
+            double roundedResult = Math.round(resultValue * 100.0) / 100.0;  // 연산 결과를 반올림하여 소수점 둘째 자리까지 저장
             result.add(roundedResult);
         } catch (ArithmeticException | IllegalArgumentException e) {
             App.pass = false;  // 예외 발생한 경우 pass를 false로 변경
             System.out.println(e.getMessage());
         }
         return result;
+    }
+
+    // 연산 결과 리스트에서 input 값보다 큰 결과값들만 반환하는 메서드
+    public List<Number> maxResult(Number input) {
+        return result.stream()
+                .filter((Number n) -> input.doubleValue() < n.doubleValue())
+                .toList();
     }
 
     public void removeResult() {
