@@ -23,7 +23,7 @@ public class ArithmeticCalculator {
                     break;
                 case DIVIDE:
                     if (n2 == 0) {
-                        throw new ArithmeticException("나눗셈 연산에서 분모(두번째 숫자)에 0이 입력될 수 없습니다.");
+                        throw new ArithmeticException("\t> [Error] 나눗셈 연산에서 분모(두번째 숫자)에 0이 입력될 수 없습니다.");
                     }
                     resultValue = n1 / n2;
                     break;
