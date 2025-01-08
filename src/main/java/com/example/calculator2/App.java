@@ -23,7 +23,7 @@ public class App {
             calculator.calculate(operator, num1, num2);
 
             // 연산 조건 만족할 경우 계산 결과 출력
-            if (pass) System.out.println("결과: " + num1 + operator + num2 + "=" + calculator.getResult().getLast());
+            if (pass) System.out.println("결과: " + num1 + operator + num2 + "=" + calculator.getResult().get(calculator.getResult().size()-1));
             System.out.println("결과 리스트: " + calculator.getResult());  // getResult()를 사용하여 결과 리스트 출력
 
             if (calculator.getResult().size() > 5) { // 결과 리스트의 크기가 5보다 큰 경우

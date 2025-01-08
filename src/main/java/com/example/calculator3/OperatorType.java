@@ -16,6 +16,7 @@ public enum OperatorType {  // Enum 타입으로 연산자 타입 정의
         return symbol;
     }
 
+    // 연산자 비교 메서드
     public static OperatorType compare(char operator) {
         for (OperatorType operatorType : OperatorType.values()) {
             if (operatorType.getSymbol() == operator) return operatorType;

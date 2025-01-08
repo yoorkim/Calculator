@@ -32,7 +32,7 @@ public class App {
             calculator.calculate(operator, num1, num2);  // 사칙연산 수행
 
             // 예외 발생 없이 연산된 경우에만 계산식 출력
-            if (pass) System.out.println("결과: " + num1 + operator + num2 + "=" + calculator.getResult().getLast());
+            if (pass) System.out.println("결과: " + num1 + operator + num2 + "=" + calculator.getResult().get(calculator.getResult().size()-1));
             // getResult()를 사용하여 결과 리스트 출력
             System.out.println("결과 리스트: " + calculator.getResult() + "\n");
 

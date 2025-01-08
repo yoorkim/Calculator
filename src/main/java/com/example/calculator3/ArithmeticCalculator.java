@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ArithmeticCalculator {
-    private LinkedList<Number> result = new LinkedList<>();
+    private List<Number> result = new LinkedList<>();
 
-    public <T extends Number> LinkedList<Number> calculate (char operator, T num1, T num2) {
+    public <T extends Number> List<Number> calculate (char operator, T num1, T num2) {
         try {
             double n1 = num1.doubleValue(), n2 = num2.doubleValue();  // Number -> double 타입 변환
             double resultValue = 0;
@@ -51,12 +51,13 @@ public class ArithmeticCalculator {
                 .toList();
     }
 
+    // 데이터 삭제 메서드
     public void removeResult() {
         result.remove(0);  // 가장 먼저 저장된 데이터가 있는 첫 번째 인덱스 삭제
     }
 
     // Getter 메서드
-    public LinkedList<Number> getResult() {
+    public List<Number> getResult() {
         return result;
     }
 

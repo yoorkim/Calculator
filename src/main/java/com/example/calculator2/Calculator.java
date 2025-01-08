@@ -1,11 +1,12 @@
 package com.example.calculator2;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Calculator {
-    private LinkedList<Integer> result = new LinkedList<>();
+    private List<Integer> result = new LinkedList<>();
 
-    public LinkedList<Integer> calculate (char operator, int num1, int num2) {
+    public List<Integer> calculate (char operator, int num1, int num2) {
         switch(operator) {
             case('+'):
                 result.add(num1 + num2);
@@ -28,12 +29,11 @@ public class Calculator {
         return result;
     }
 
-    public void removeResult() {
-        result.remove(0);  // 가장 먼저 저장된 데이터가 있는 첫 번째 인덱스 삭제
-    }
+    // 데이터 삭제 메서드
+    public void removeResult() { result.remove(0); }  // 가장 먼저 저장된 데이터가 있는 첫 번째 인덱스 삭제
 
     // Getter 메서드
-    public LinkedList<Integer> getResult() {
+    public List<Integer> getResult() {
         return result;
     }
 
